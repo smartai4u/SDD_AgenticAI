@@ -6,8 +6,8 @@
           {
             "type": "command",
             "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/auto-sync.sh\"",
-            "timeout": 120,
-            "statusMessage": "Syncing to smartai4u/auto-sync..."
+            "timeout": 240,
+            "statusMessage": "Syncing to smartai4u via PR..."
           }
         ]
       }
