@@ -41,6 +41,7 @@
 - **Merge strategy:** squash merge.
 - **Branch protection:** `main` is protected; PRs always required.
 - **Who may merge:** TBD.
+- **Automation:** a Claude Code `Stop` hook (`.claude/hooks/auto-sync.sh`) pushes local changes to the `auto-sync` branch on `smartai4u`, opens a PR into `main`, and squash-merges it. It never pushes directly to `main`. The hook has no review step, so it relies on PRs without reviewers; revisit if required reviews or CI checks are added to branch protection.
 
 ## Later (post-1.0)
 
