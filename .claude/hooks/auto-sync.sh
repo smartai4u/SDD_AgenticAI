@@ -21,6 +21,15 @@ REPO="$(echo "$URL" | sed -E 's#^(https://github.com/|git@github.com:)##; s#\.gi
 G="git -c core.fsmonitor=false"
 say() { echo "{\"systemMessage\": \"auto-sync: $1\"}"; }
 
+# Minimum gap between replications (seconds). Override with AUTO_SYNC_MIN_SECONDS.
+MIN_GAP="${AUTO_SYNC_MIN_SECONDS:-300}"
+STAMP="$(git rev-parse --git-dir)/auto-sync-last"
+NOW="$(date +%s)"
+LAST="$(cat "$STAMP" 2>/dev/null || echo 0)"
+if [ $((NOW - LAST)) -lt "$MIN_GAP" ]; then
+  exit 0   # too soon; changes are picked up by the next run after the gap
+fi
+
 timeout 60 $G fetch "$REMOTE" "$BASE" >/dev/null 2>&1
 PARENT="$($G rev-parse -q --verify "refs/remotes/$REMOTE/$BASE" 2>/dev/null)" || exit 0
 
@@ -45,6 +54,8 @@ if ! timeout 90 $G push --force "$REMOTE" "refs/heads/$BRANCH:refs/heads/$BRANCH
   say "committed locally but push to $REMOTE failed (check gh login)"
   exit 0
 fi
+
+echo "$NOW" > "$STAMP"   # record the replication time (only after a successful push)
 
 CUR="$($G symbolic-ref --short -q HEAD)"
 if [ "$CUR" != "$BASE" ]; then
