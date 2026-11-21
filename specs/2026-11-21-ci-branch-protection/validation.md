@@ -26,10 +26,10 @@ A PR runs the pipeline and cannot merge to `main` unless it passes.
 - [x] Deliberate lint error: `ci` fails and merge is blocked.
 - [x] After the fix: `ci` passes and merge is allowed.
 - [x] A direct push to `main` is rejected.
-- [ ] Auto-sync hook merges only after `ci` passes.
-- [ ] Every feature task in `plan.md` has a passing paired test task.
+- [x] Auto-sync hook merges only after `ci` passes.
+- [x] Every feature task in `plan.md` has a passing paired test task.
 - [x] All commits authored by `smartai4u`.
-- [ ] The PR that completes this phase marks Phase 2 `Done` in `specs/roadmap.md`.
+- [x] The PR that completes this phase marks Phase 2 `Done` in `specs/roadmap.md`.
 
 ## CI
 
@@ -45,4 +45,4 @@ The workflow this phase creates is itself the CI. Until it is merged, no GitHub 
 - **T7:** `git push smartai4u HEAD:main` was rejected ("Changes must be made through a pull request", "Required status check "ci" is expected").
 - **Hook logic (partial T8):** in a throwaway clone with a fake `gh`, the hook opened a PR and ran `gh pr merge --auto --squash` (no immediate merge). The real run from `main` is recorded separately.
 - **Repo:** made public to enable protection (free plan); secret scan beforehand found nothing.
-
+- **T8 (real run from `main`):** the hook opened PR #19 with auto-merge enabled; before `ci` finished the PR was `OPEN / BLOCKED`; after `ci` passed GitHub squash-merged it automatically (`6fb2328`).
