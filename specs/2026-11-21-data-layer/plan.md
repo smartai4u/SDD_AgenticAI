@@ -26,7 +26,7 @@ Tasks are ordered. Every **feature task (F)** is immediately followed by the **t
 These change an external account or tooling and contain no behavior of their own; they are verified by the tasks that follow.
 
 - [ ] **S1** (user approval) Confirm the cost, then create a new Supabase project for this app and record its URL and server key in `.env.local` (never committed). Verified by F1/T1.
-- [ ] **S2** Install `@supabase/supabase-js`; add `.env.example`; add a Vitest integration config and the `npm run test:integration` script (`.env.local` is already gitignored). Verified by the tasks that follow.
+- [x] **S2** Install `@supabase/supabase-js`; add `.env.example`; add a Vitest integration config and the `npm run test:integration` script (`.env.local` is already gitignored). Verified by the tasks that follow.
 
 ## Feature and test tasks
 
