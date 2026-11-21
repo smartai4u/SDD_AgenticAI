@@ -11,7 +11,10 @@ Tasks are ordered. Every **feature task (F)** is immediately followed by the **t
 - **Auto-sync hook:** changed to enable auto-merge (`gh pr merge --auto --squash`) so it merges only after the required check passes.
 - **Proof of done:** a real failing + passing throwaway PR, plus reading back repository and protection settings through the API.
 - **Runtime:** Node 24 in CI (matches `engines` `>=24`).
-- **Admin enforcement:** TBD (see `requirements.md`).
+- **Admin enforcement:** enforce the rules for admins too (user decision).
+- **CI trigger:** pull requests into `main` only; no run on pushes to `main` (user decision).
+- **Strict status checks:** require the PR branch to be up to date with `main` before merging (user decision).
+- **S1 (unlock protection):** user will make the repo public or upgrade to GitHub Pro; F3 and its tests wait until the API stops returning 403 (user decision).
 - **Prerequisite:** branch protection needs the repo to be public or the account on GitHub Pro (currently returns 403).
 
 ## Setup tasks (exempt from test pairing)
@@ -22,8 +25,8 @@ These change an external account or tooling and contain no code behavior of thei
 
 ## Feature and test tasks
 
-- [ ] **F1** Add `.github/workflows/ci.yml`: triggers on `pull_request` into `main`; one job named `ci` on `ubuntu-latest` with Node 24, `npm ci`, `npm run lint`, `npm run typecheck`.
-  - [ ] **T1** Test: run `npm ci`, `npm run lint` and `npm run typecheck` locally exactly as the workflow does and confirm each exits 0.
+- [x] **F1** Add `.github/workflows/ci.yml`: triggers on `pull_request` into `main`; one job named `ci` on `ubuntu-latest` with Node 24, `npm ci`, `npm run lint`, `npm run typecheck`.
+  - [x] **T1** Test: run `npm ci`, `npm run lint` and `npm run typecheck` locally exactly as the workflow does and confirm each exits 0.
   - [ ] **T2** Test: open the Phase 2 PR and confirm the `ci` check runs and passes (`gh pr checks`).
 - [ ] **F2** Repository merge settings via `gh api`: allow squash merge only (disable merge commits and rebase merges), enable "automatically delete head branches" and "allow auto-merge".
   - [ ] **T3** Test: read the settings back with `gh api repos/smartai4u/SDD_AgenticAI` and assert `allow_squash_merge=true`, `allow_merge_commit=false`, `allow_rebase_merge=false`, `allow_auto_merge=true`.
