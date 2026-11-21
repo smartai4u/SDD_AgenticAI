@@ -20,9 +20,9 @@ Tasks are ordered. Every **feature task (F)** is immediately followed by the **t
 
 These install or generate tooling and contain no behavior of their own; they are verified by the tasks that follow.
 
-- [ ] **S1** Create the Next.js app at the repo root with TypeScript, Tailwind, App Router, `src/` dir and npm.
-- [ ] **S2** Install and configure Vitest, React Testing Library and jsdom (config, setup file, `npm test`).
-- [ ] **S3** Install and configure Playwright (config with a `webServer` that starts the dev server, `npm run test:e2e`).
+- [x] **S1** Create the Next.js app at the repo root with TypeScript, Tailwind, App Router, `src/` dir and npm.
+- [x] **S2** Install and configure Vitest, React Testing Library and jsdom (config, setup file, `npm test`).
+- [x] **S3** Install and configure Playwright (config with a `webServer` that starts the dev server, `npm run test:e2e`).
 
 ## Feature and test tasks
 
