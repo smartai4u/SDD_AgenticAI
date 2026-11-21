@@ -20,7 +20,7 @@ Ordered phases leading to the first version (0.1.0). Each phase ships and is ver
 
 ## Phase 3: Data layer
 
-**Status:** Not started
+**Status:** In progress
 
 **Goal:** the Supabase database models producers, sites, and inbound and outbound movements (weight in kg).
 **Done when:** the schema exists in Supabase and the app can read and write it in tests.

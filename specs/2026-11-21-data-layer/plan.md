@@ -16,6 +16,10 @@ Tasks are ordered. Every **feature task (F)** is immediately followed by the **t
 - **Columns:** UUID primary keys (`gen_random_uuid()`); `weight_kg numeric(12,3)` with `> 0`; timestamps as `timestamptz`; foreign keys `ON DELETE RESTRICT`.
 - **Test commands:** `npm test` stays unit and component tests only (no secrets needed); `npm run test:integration` runs the database tests.
 - **CI:** unchanged (lint + typecheck); database tests run locally.
+- **Supabase project (user decision):** name `sdd-agentic-ai`, region `us-east-1` (matches the Vercel deployment in iad1), organization `smartai4u's Org` (free plan).
+- **Cost (user decision):** create the project only if the quoted cost is $0; if Supabase quotes anything nonzero, stop and ask first.
+- **Names (user decision):** producer and site names are unique, case-insensitive (unique index on `lower(name)`); name-only columns; weight `numeric(12,3)`; hard deletes.
+- **Secret key (user decision):** the user pastes the server-only secret key into a gitignored `.env.local` from Supabase Dashboard > Project Settings > API Keys; it never enters the chat or git. The Supabase tools only expose the publishable key. No permissive RLS policies are added.
 
 ## Setup tasks (exempt from test pairing)
 
