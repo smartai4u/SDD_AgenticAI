@@ -80,18 +80,19 @@ if [ -z "$PR" ]; then
 fi
 [ -z "$PR" ] && { say "pushed $BRANCH but could not open a PR"; exit 0; }
 
-MERGED=""
+# Branch protection requires the "ci" check, so enable auto-merge instead of merging at once:
+# GitHub squash-merges the PR as soon as ci passes (and deletes the branch on merge).
+ENABLED=""
 for i in 1 2 3 4 5; do
-  if timeout 60 gh pr merge "$PR" --repo "$REPO" --squash --delete-branch >/dev/null 2>&1; then MERGED=1; break; fi
+  if timeout 60 gh pr merge "$PR" --repo "$REPO" --auto --squash >/dev/null 2>&1; then ENABLED=1; break; fi
   sleep 3
 done
-if [ -z "$MERGED" ]; then
-  say "PR #$PR opened but could not be merged automatically"
+if [ -z "$ENABLED" ]; then
+  say "PR #$PR opened but auto-merge could not be enabled (check branch protection / allow_auto_merge)"
   exit 0
 fi
 
-# Move local main to the merged commit (index + ref only; working tree already matches).
-timeout 60 $G fetch "$REMOTE" "$BASE" >/dev/null 2>&1
-$G reset --mixed -q "refs/remotes/$REMOTE/$BASE" >/dev/null 2>&1
-say "PR #$PR squash-merged into $BASE on $REMOTE"
+# The merge now happens asynchronously on GitHub, so local main is not moved here;
+# the next sync (and a normal pull) picks up the merged commit.
+say "PR #$PR opened with auto-merge: it will squash-merge into $BASE on $REMOTE once ci passes"
 exit 0
