@@ -6,7 +6,7 @@ Ordered phases leading to the first version (0.1.0). Each phase ships and is ver
 
 ## Phase 1: Foundation
 
-**Status:** Not started
+**Status:** In progress
 
 **Goal:** a running, styled, tested app skeleton (Next.js + TypeScript + Tailwind, shadcn/ui, Inter font, green accent, Vitest/React Testing Library/Playwright set up).
 **Done when:** the app starts locally, shows a styled placeholder page, and a sample test of each kind passes.

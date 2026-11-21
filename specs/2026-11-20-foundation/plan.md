@@ -11,6 +11,10 @@ Tasks are ordered. Every **feature task (F)** is immediately followed by the **t
 - **Stack:** as fixed in `specs/tech-stack.md` (Next.js, TypeScript, Tailwind only, shadcn/ui).
 - **Design:** Inter via Google Fonts, single green accent, neutral palette.
 - **Tests:** Vitest for unit tests; React Testing Library for component tests (run under Vitest); Playwright for end-to-end.
+- **Generated CSS:** the generated `src/app/globals.css` (Tailwind import and theme tokens) is the only CSS file allowed; no hand-written CSS rules go in it.
+- **Node.js:** pinned to `>=24` via `engines` in `package.json`.
+- **Placeholder page text:** neutral placeholder (heading "Placeholder", short line such as "App skeleton ready"); no product name.
+- **Playwright browsers:** Chromium only.
 
 ## Setup tasks (exempt from test pairing)
 
