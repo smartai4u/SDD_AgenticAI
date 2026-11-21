@@ -45,7 +45,13 @@ unset GIT_INDEX_FILE
 [ "$TREE" = "$($G rev-parse "$PARENT^{tree}")" ] && exit 0
 
 TS="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
-COMMIT="$($G commit-tree "$TREE" -p "$PARENT" \
+# Author as the account Vercel recognises (the repo owner); otherwise Vercel
+# blocks the auto-sync preview deployments. Override via AUTO_SYNC_AUTHOR_NAME/EMAIL.
+AUTHOR_NAME="${AUTO_SYNC_AUTHOR_NAME:-smartai4u}"
+AUTHOR_EMAIL="${AUTO_SYNC_AUTHOR_EMAIL:-subhadarshi@smartai4u.com}"
+COMMIT="$(GIT_AUTHOR_NAME="$AUTHOR_NAME" GIT_AUTHOR_EMAIL="$AUTHOR_EMAIL" \
+  GIT_COMMITTER_NAME="$AUTHOR_NAME" GIT_COMMITTER_EMAIL="$AUTHOR_EMAIL" \
+  $G commit-tree "$TREE" -p "$PARENT" \
   -m "chore: auto-sync $TS" \
   -m "Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>")" || exit 0
 $G update-ref "refs/heads/$BRANCH" "$COMMIT" || exit 0
