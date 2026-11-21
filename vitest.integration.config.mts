@@ -1,5 +1,6 @@
 import { fileURLToPath } from "node:url";
-import { defineConfig, loadEnv } from "vitest/config";
+import { loadEnv } from "vite";
+import { defineConfig } from "vitest/config";
 
 // Database integration tests: run against the real Supabase project.
 // Secrets come from a gitignored .env.local (see .env.example).
