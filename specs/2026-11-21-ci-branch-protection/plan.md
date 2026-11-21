@@ -30,11 +30,11 @@ These change an external account or tooling and contain no code behavior of thei
   - [x] **T2** Test: open the Phase 2 PR and confirm the `ci` check runs and passes (`gh pr checks`).
 - [x] **F2** Repository merge settings via `gh api`: allow squash merge only (disable merge commits and rebase merges), enable "automatically delete head branches" and "allow auto-merge".
   - [x] **T3** Test: read the settings back with `gh api repos/smartai4u/SDD_AgenticAI` and assert `allow_squash_merge=true`, `allow_merge_commit=false`, `allow_rebase_merge=false`, `allow_auto_merge=true`.
-- [ ] **F3** Branch protection on `main` via `gh api` (requires S1): require a pull request, require the `ci` status check, block force pushes and deletion; admin enforcement per the open question.
-  - [ ] **T4** Test: read the protection back from the API and assert the required check is `ci`, a PR is required, force pushes and deletions are disallowed.
-  - [ ] **T5** Test (demo, blocked): open a throwaway PR with a deliberate lint error; confirm `ci` fails and the PR cannot be merged.
-  - [ ] **T6** Test (demo, allowed): fix the lint error on that PR; confirm `ci` passes and the PR can be squash-merged (if it was only a demo, close it instead so the throwaway change does not reach `main`).
-  - [ ] **T7** Test: confirm a direct push to `main` is rejected.
+- [x] **F3** Branch protection on `main` via `gh api` (requires S1): require a pull request, require the `ci` status check, block force pushes and deletion; admin enforcement per the open question.
+  - [x] **T4** Test: read the protection back from the API and assert the required check is `ci`, a PR is required, force pushes and deletions are disallowed.
+  - [x] **T5** Test (demo, blocked): open a throwaway PR with a deliberate lint error; confirm `ci` fails and the PR cannot be merged.
+  - [x] **T6** Test (demo, allowed): fix the lint error on that PR; confirm `ci` passes and the PR can be squash-merged (if it was only a demo, close it instead so the throwaway change does not reach `main`).
+  - [x] **T7** Test: confirm a direct push to `main` is rejected.
 - [ ] **F4** Update `.claude/hooks/auto-sync.sh` to use `gh pr merge --auto --squash` (and not reset local `main` until the PR has merged).
   - [ ] **T8** Test: `bash -n .claude/hooks/auto-sync.sh` passes, and a run from `main` with a trivial change opens a PR with auto-merge enabled that merges only after `ci` passes.
 
