@@ -26,8 +26,8 @@ These install or generate tooling and contain no behavior of their own; they are
 
 ## Feature and test tasks
 
-- [ ] **F1** Initialise shadcn/ui (`components.json`, `cn` helper).
-  - [ ] **T1** Test (Vitest unit): `cn()` merges class names and resolves conflicting Tailwind classes.
+- [x] **F1** Initialise shadcn/ui (`components.json`, `cn` helper).
+  - [x] **T1** Test (Vitest unit): `cn()` merges class names and resolves conflicting Tailwind classes.
 - [ ] **F2** Add the shadcn/ui `Button` component.
   - [ ] **T2** Test (React Testing Library): `Button` renders its label and handles a click.
 - [ ] **F3** Design tokens: Inter font via `next/font/google`, single green accent and neutral palette in the Tailwind theme.
