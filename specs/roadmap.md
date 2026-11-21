@@ -13,7 +13,7 @@ Ordered phases leading to the first version (0.1.0). Each phase ships and is ver
 
 ## Phase 2: CI and branch protection
 
-**Status:** In progress
+**Status:** Done
 
 **Goal:** every change is checked before it merges (GitHub Actions running lint + typecheck; `main` protected, PRs required, squash merge only).
 **Done when:** a PR runs the pipeline and cannot merge to `main` unless it passes.

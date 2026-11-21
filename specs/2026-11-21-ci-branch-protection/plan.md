@@ -35,8 +35,8 @@ These change an external account or tooling and contain no code behavior of thei
   - [x] **T5** Test (demo, blocked): open a throwaway PR with a deliberate lint error; confirm `ci` fails and the PR cannot be merged.
   - [x] **T6** Test (demo, allowed): fix the lint error on that PR; confirm `ci` passes and the PR can be squash-merged (if it was only a demo, close it instead so the throwaway change does not reach `main`).
   - [x] **T7** Test: confirm a direct push to `main` is rejected.
-- [ ] **F4** Update `.claude/hooks/auto-sync.sh` to use `gh pr merge --auto --squash` (and not reset local `main` until the PR has merged).
-  - [ ] **T8** Test: `bash -n .claude/hooks/auto-sync.sh` passes, and a run from `main` with a trivial change opens a PR with auto-merge enabled that merges only after `ci` passes.
+- [x] **F4** Update `.claude/hooks/auto-sync.sh` to use `gh pr merge --auto --squash` (and not reset local `main` until the PR has merged).
+  - [x] **T8** Test: `bash -n .claude/hooks/auto-sync.sh` passes, and a run from `main` with a trivial change opens a PR with auto-merge enabled that merges only after `ci` passes.
 
 ## Pairing check
 
