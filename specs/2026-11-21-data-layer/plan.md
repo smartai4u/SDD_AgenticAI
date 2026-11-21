@@ -32,8 +32,8 @@ These change an external account or tooling and contain no behavior of their own
 
 - [x] **F1** Migration `0001`: `producers` and `sites` tables (uuid id, required name, timestamps) with RLS enabled; applied to the new project.
   - [x] **T1** Test (schema read-back): both tables exist with the expected columns and constraints, and RLS is enabled (verified through the Supabase tools and recorded in `validation.md`).
-- [ ] **F2** Migration `0002`: `movements` table with `direction` check, `weight_kg > 0`, foreign keys (`ON DELETE RESTRICT`), the direction CHECK constraint and indexes on `occurred_at`, `producer_id`, `site_id`; applied to the project.
-  - [ ] **T2** Test (SQL against the live schema): valid inbound and outbound rows are accepted; weight `0` and negative weight, inbound without a producer, outbound without a site, inbound with a site, and outbound with a producer are all rejected.
+- [x] **F2** Migration `0002`: `movements` table with `direction` check, `weight_kg > 0`, foreign keys (`ON DELETE RESTRICT`), the direction CHECK constraint and indexes on `occurred_at`, `producer_id`, `site_id`; applied to the project.
+  - [x] **T2** Test (SQL against the live schema): valid inbound and outbound rows are accepted; weight `0` and negative weight, inbound without a producer, outbound without a site, inbound with a site, and outbound with a producer are all rejected.
 - [ ] **F3** Generated TypeScript types and a server-only Supabase client (`src/lib/supabase/`).
   - [ ] **T3** Test (Vitest unit): the client factory throws a clear error when the URL or key is missing, and reads them from the environment when present.
 - [ ] **F4** Data layer for producers and sites: create, get, list, update and delete.
