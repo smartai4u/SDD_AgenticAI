@@ -27,7 +27,7 @@ These change an external account or tooling and contain no code behavior of thei
 
 - [x] **F1** Add `.github/workflows/ci.yml`: triggers on `pull_request` into `main`; one job named `ci` on `ubuntu-latest` with Node 24, `npm ci`, `npm run lint`, `npm run typecheck`.
   - [x] **T1** Test: run `npm ci`, `npm run lint` and `npm run typecheck` locally exactly as the workflow does and confirm each exits 0.
-  - [ ] **T2** Test: open the Phase 2 PR and confirm the `ci` check runs and passes (`gh pr checks`).
+  - [x] **T2** Test: open the Phase 2 PR and confirm the `ci` check runs and passes (`gh pr checks`).
 - [ ] **F2** Repository merge settings via `gh api`: allow squash merge only (disable merge commits and rebase merges), enable "automatically delete head branches" and "allow auto-merge".
   - [ ] **T3** Test: read the settings back with `gh api repos/smartai4u/SDD_AgenticAI` and assert `allow_squash_merge=true`, `allow_merge_commit=false`, `allow_rebase_merge=false`, `allow_auto_merge=true`.
 - [ ] **F3** Branch protection on `main` via `gh api` (requires S1): require a pull request, require the `ci` status check, block force pushes and deletion; admin enforcement per the open question.
