@@ -28,15 +28,15 @@ These install or generate tooling and contain no behavior of their own; they are
 
 - [x] **F1** Initialise shadcn/ui (`components.json`, `cn` helper).
   - [x] **T1** Test (Vitest unit): `cn()` merges class names and resolves conflicting Tailwind classes.
-- [ ] **F2** Add the shadcn/ui `Button` component.
-  - [ ] **T2** Test (React Testing Library): `Button` renders its label and handles a click.
-- [ ] **F3** Design tokens: Inter font via `next/font/google`, single green accent and neutral palette in the Tailwind theme.
-  - [ ] **T3** Test (React Testing Library): the root layout renders its children and applies the Inter font class.
-- [ ] **F4** Styled placeholder page at `/` (heading, short text, accent-colored `Button`; works at phone width).
-  - [ ] **T4** Test (React Testing Library): the page renders its heading and the accent-styled `Button`.
-  - [ ] **T5** Test (Playwright e2e): loading `/` shows the heading and the button with no console errors.
-- [ ] **F5** npm scripts: `dev`, `build`, `lint`, `typecheck`, `test`, `test:e2e`.
-  - [ ] **T6** Test: run `lint`, `typecheck`, `test`, `test:e2e` and `build` and confirm each exits 0 (recorded in `validation.md`).
+- [x] **F2** Add the shadcn/ui `Button` component.
+  - [x] **T2** Test (React Testing Library): `Button` renders its label and handles a click.
+- [x] **F3** Design tokens: Inter font via `next/font/google`, single green accent and neutral palette in the Tailwind theme.
+  - [x] **T3** Test (React Testing Library): the root layout renders its children and applies the Inter font class.
+- [x] **F4** Styled placeholder page at `/` (heading, short text, accent-colored `Button`; works at phone width).
+  - [x] **T4** Test (React Testing Library): the page renders its heading and the accent-styled `Button`.
+  - [x] **T5** Test (Playwright e2e): loading `/` shows the heading and the button with no console errors.
+- [x] **F5** npm scripts: `dev`, `build`, `lint`, `typecheck`, `test`, `test:e2e`.
+  - [x] **T6** Test: run `lint`, `typecheck`, `test`, `test:e2e` and `build` and confirm each exits 0 (recorded in `validation.md`).
 
 ## Pairing check
 
